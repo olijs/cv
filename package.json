@@ -1,0 +1,23 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -w scss -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olygood/cv.git"
+  },
+  "author": "olygood",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olygood/cv/issues"
+  },
+  "homepage": "https://github.com/olygood/cv#readme",
+  "dependencies": {
+    "node-sass": "^4.14.1"
+  }
+}
