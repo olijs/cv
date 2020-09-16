@@ -1,6 +1,7 @@
 // ne pas mettre de uderscore_devant reset,base ca ne marche pas
 @import "reset";
 @import "base";
+@import "utils";
 @import "classes";
 
 .grid-container{
@@ -36,7 +37,7 @@ header{
 aside{
   grid-area: aside;
   background: var(--background);
-  border-right: 1px solid var(--int2);
+  border-right: 1px solid var(--hint2);
   padding: 5rem;
   min-height: 1500px;
 
@@ -53,7 +54,7 @@ aside{
     .bar-skill{
       margin: 2rem 0;
       height: 5px;
-      background: var(--int);
+      background: var(--hint);
       position: relative;
     .bar-skill-progress{
       position: absolute;
@@ -108,18 +109,47 @@ main{
   background: var(--background);
   padding: 5rem;
   h2{
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   p{
     letter-spacing: 0.1;
     line-height: 3rem;
+    
+  }
+  .experience{
+    display: flex;
+    margin: 5rem 0;
+    .timeline{
+      text-align: center;
+      color: var(--hint);
+      padding-right: 2rem;
+      border-right: 5px solid var(--hint2);
+      p{
+        margin: 0;
+      }
+     }
+     .content{
+       padding: 0 1rem;
+       h3{
+         margin: 0;
+       }
+       p{
+         margin: 0;
+       }
+       ul{
+         margin: 2rem 0;
+         list-style: circle;
+         padding-left: 5rem;
+       }
+     }
+
   }
 }
 .picture{
   grid-area: picture;
   padding: 6rem;
   background: var(--background);
-  border-right: 1px solid var(--int2);
+  border-right: 1px solid var(--hint2);
  
   img{
     border-radius: 50%;
