@@ -3,14 +3,25 @@
 @import "base";
 @import "utils";
 @import "classes";
+@import "animate";
+@import "media-queries";
 
 .grid-container{
   display:grid;
   grid:
     "picture header" auto
     "aside main" 1fr
+    "footer footer" auto
     / 350px auto;
-    min-height: 100vh;
+    @include xs{
+      grid:
+      "header" auto
+      "main" auto
+      "picture" auto
+      "aside" auto
+      "footer" auto
+      / auto;
+    }
 }
 header{
   display: flex;
@@ -22,16 +33,25 @@ header{
   padding: 8rem 5rem;
   text-align: center;
   color: white;
-
+  @include xs{
+    padding: 5rem 2rem;
+  }
   h1{
     font-size: 6rem;;
     line-height: 8rem;
     font-weight: 300;
     letter-spacing: 1.5rem;
+    @include xs{
+      font-size: 4rem;
+    }
   }
   p{
     letter-spacing: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+  span{
+    display: inline-block;
+    animation: bounce 5s;
   }
 }
 aside{
@@ -86,16 +106,26 @@ aside{
       }
       .social-container{
         display: flex;
-        
         justify-content: start;
         align-items: center;
+        padding: 0.5rem 0.5rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover{
+          background: var(--hint2);
+          i{
+            color: var(--primary);
+            transform: scale(1.3);
+            transition: all 0.2s;
+          }
+        }
+
         i{
-          
           font-size: 2rem;
           flex: 0 0 50px;
           margin-right: 1rem;
           margin: 2rem 0;
-          
         }
         p{
           flex: auto;
@@ -108,6 +138,10 @@ main{
   grid-area: main;
   background: var(--background);
   padding: 5rem;
+  @include xs{
+    padding: 5rem 1.5rem;
+  
+  }
   h2{
     margin-bottom: 2rem;
   }
@@ -150,8 +184,79 @@ main{
   padding: 6rem;
   background: var(--background);
   border-right: 1px solid var(--hint2);
+
  
   img{
     border-radius: 50%;
    }
+}
+footer{
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 5rem;
+  @include xs{
+    padding: 5rem 1.5rem;
+  } 
+  background: var(--text);
+  h2{
+    margin-bottom: 3rem;
+  }
+  
+  form{
+    display: flex;
+    align-items: center;
+    
+    .prefix{
+      background: linear-gradient(to right, var(--dark), var(--light));
+      padding:1rem 2rem;
+      color: white;
+      font-size: 2rem;
+      border-top-left-radius: 20%;
+      border-bottom-left-radius: 20%;
+    }
+    button{
+      background: var(--text);
+      border: 0;
+      cursor: pointer;
+      transition: all 0.2sec;
+      &:hover{
+        opacity: 0.8;
+      }
+      .postfix{
+        background: linear-gradient(to right, var(--dark), var(--light));
+        padding:1rem 2rem;
+        color: white;
+        font-size: 2rem;
+        border-top-right-radius: 20%;
+        border-bottom-right-radius: 20%;
+      }
+    }
+    .postfix{
+      background: linear-gradient(to right, var(--dark), var(--light));
+      padding:1rem 2rem;
+      color: white;
+      font-size: 2rem;
+      border-top-right-radius: 20%;
+      border-bottom-right-radius: 20%;
+    }
+    input{
+      outline: 0;
+      border:0;
+      min-width: 400px;
+      @include xs {
+        min-width: 200px;
+      }
+      padding: 1rem 2rem;
+      line-height: 2rem;
+      &::placeholder{
+        color: var(--text);
+      }
+    }
+  }
+
 }
